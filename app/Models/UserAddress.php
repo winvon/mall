@@ -28,4 +28,9 @@ class UserAddress extends Model
     {
         return "{$this->province}{$this->city}{$this->district}{$this->address}";
     }
+
+    public function addresses()
+    {
+        return $this->hasMany(UserAddress::class);
+    }
 }
