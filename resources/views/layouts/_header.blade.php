@@ -2,7 +2,7 @@
     <div class="container">
         <!-- Branding Image -->
         <a class="navbar-brand " href="{{ url('/') }}">
-            Laravel Shop
+            {{env('APP_NAME','Laravel Shop')}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,6 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav navbar-right">
-                <!-- Authentication Links -->
                 <!-- 登录注册链接开始 -->
                 @guest
                     <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">登录</a></li>
@@ -29,6 +28,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a href="{{ route('user_addresses.index') }}" class="dropdown-item">收货地址</a>
+                            <a href="{{ route('products.favorites') }}" class="dropdown-item">我的收藏</a>
                             <a class="dropdown-item" id="logout" href="#"
                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">退出登录</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
