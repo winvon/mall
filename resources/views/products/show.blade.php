@@ -48,7 +48,7 @@
                                 @else
                                     <button class="btn btn-success btn-favor">❤ 收藏</button>
                                 @endif
-                                <button class="btn btn-success btn-disfavor">加入购物车</button>
+                                <button class="btn btn-success btn-disfavor btn-add-to-cart">加入购物车</button>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,10 @@
                     amount: $('.cart_amount input').val(),
                 })
                     .then(function () { // 请求成功执行此回调
-                        swal('加入购物车成功', '', 'success');
+                        swal('加入购物车成功', '', 'success')
+                            .then(function() {
+                                location.href = '{{ route('cart.index') }}';
+                            });
                     }, function (error) { // 请求失败执行此回调
                         if (error.response.status === 401) {
 
